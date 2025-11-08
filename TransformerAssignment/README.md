@@ -15,39 +15,5 @@ transformer-project/
 ├── train_IWSLT.py # 主训练文件
 └── README.md # 项目说明
 
-## 环境配置
 
-### 1. 创建conda环境
-```bash
-conda create -n transformer python=3.10
-conda activate transformer
-
-pip install -r requirements.txt
-
-python -m spacy download de_core_news_sm
-python -m spacy download en_core_web_sm
-
-# 使用默认参数训练
-python train_IWSLT.py
-
-# 指定批大小和设备
-python train_IWSLT.py --batch_size 32 --device cuda
-
-# 设置随机种子并开始训练
-python -c "import torch; torch.manual_seed(42)" && python train_IWSLT.py --batch_size 16 --epochs 5
-
-模型配置
-当前实现的Transformer参数：
-
-嵌入维度: 128
-
-注意力头数: 2
-
-前馈网络维度: 256
-
-编码器层数: 2
-
-解码器层数: 2
-
-词汇表大小: 英语35,437 / 德语61,841
 
